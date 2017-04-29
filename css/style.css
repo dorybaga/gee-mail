@@ -2,12 +2,14 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
-.header {
-	font-size: 100px
+#header {
+	font-size: 50px;
+	margin-bottom: 50px;	
 }
 
 .generalContainer {
 	padding: 7px;
+	border-top: 1px dotted;
 
 }
 
@@ -15,8 +17,10 @@ body {
 	font-size: 14px;
 	font-weight: 900;
 }
+
 .about {
 	font-size: 14px;
+	font-weight: 400px;
 }
 
 .date {
@@ -24,9 +28,10 @@ body {
 	float: right;
 	color: gray;
 	font-size: 14px;
+	font-weight: 400px;
 }
 
 .message {
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 300;
 }

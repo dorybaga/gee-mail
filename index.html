@@ -2,7 +2,7 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
-		<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 		<title>geemail challenge</title>
     <script>
       window.onload = function(){
@@ -66,22 +66,19 @@
 
     	// add the inbox counter...
 
-    	function inboxNum(numEmails){
-    		for (var k = 0; k<numEmails.length; k++){
-    			emailCounter = numEmails.length;
+    	function inboxCount(num){
+    		for (var k = 0; k<num.length; k++){
+    			emailCounter = num.length;
 			}
     	}
 
-    	inboxNum(window.geemails);
+    	inboxCount(window.geemails);
     	// console.log(emailCounter); // 10
 
     	var unreadEmails = document.createElement("div");
     	unreadEmails.className = "unread";
     	unreadEmails.innerHTML = emailCounter;
     	main.appendChild(unreadEmails);
-
-    	var totalUnread = document.getElementsByClassName("unread");
-    	totalUnread.innerHTML = emailCounter;
 
     	// set recurring function to get new emails using setInterval function method
 
@@ -93,10 +90,9 @@
 	</head>
 	<body>
 		<div id="header"> 
-			WELCOME TO YOUR GEEMAIL
+			GEEMAIL
 		</div>
 		<div class="container" id="main">
-			Build Me!
 		</div>
 	</body>
 </html>
