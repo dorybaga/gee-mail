@@ -1,13 +1,9 @@
 body {
-	font-family: 'Space Mono', monospace;
+	font-family: 'Lato', sans-serif;
 }
 
-.header {font-size: 100px
-}
-
-.date {
-	display: inline;
-	float: right;
+.header {
+	font-size: 100px
 }
 
 .generalContainer {
@@ -16,8 +12,21 @@ body {
 }
 
 .from {
-	font-weight: bold;
+	font-size: 14px;
+	font-weight: 900;
+}
+.about {
+	font-size: 14px;
 }
 
-.messsage {
+.date {
+	display: inline;
+	float: right;
+	color: gray;
+	font-size: 14px;
+}
+
+.message {
+	font-size: 12px;
+	font-weight: 300;
 }
