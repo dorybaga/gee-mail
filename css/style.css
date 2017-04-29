@@ -1,22 +1,23 @@
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Space Mono', monospace;
 }
 
 .header {font-size: 100px
 }
 
 .date {
-	padding: 7px;
+	display: inline;
 	float: right;
 }
 
-.from {
+.generalContainer {
 	padding: 7px;
-	
+
 }
 
-.subject {
-	font-weight: 700px;
+.from {
+	font-weight: bold;
 }
 
-
+.messsage {
+}

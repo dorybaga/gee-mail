@@ -2,7 +2,7 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 		<title>geemail challenge</title>
     <script>
       window.onload = function(){
@@ -20,32 +20,36 @@
 
 			// displays date, sender, subject, body
 
+			var box = document.createElement("div");
+			box.className = "generalContainer";
+			main.appendChild(box);
+
 			var emailSender = document.createElement("div");
           	emailSender.className = "from";
           	emailSender.innerHTML = window.geemails[i].sender;
-          	main.appendChild(emailSender);
+          	box.appendChild(emailSender);
 
           	var emailDate = document.createElement("div");
           	emailDate.className = "date";
           	emailDate.innerHTML = window.geemails[i].date;
-          	emailSender.appendChild(emailDate);
+          	box.appendChild(emailDate);
 
           	var emailSubject = document.createElement("div");
           	emailSubject.className = "about";
           	emailSubject.innerHTML = window.geemails[i].subject;
-          	emailSender.appendChild(emailSubject);
+          	box.appendChild(emailSubject);
 
           	var emailBody = document.createElement("div");
           	emailBody.className = "message";
           	emailBody.innerHTML = window.geemails[i].body;
           	emailBody.style.display = "none"; // hide message
-          	emailSender.appendChild(emailBody);
+          	box.appendChild(emailBody);
 
         }
 
         // show and hide the email message on click (event listener)...
 
-        var showHide = document.getElementsByClassName("from");
+        var showHide = document.getElementsByClassName("generalContainer");
 
 		for (var j = 0; j<showHide.length; j++){
 			showHide[j].addEventListener("click", secret);   
