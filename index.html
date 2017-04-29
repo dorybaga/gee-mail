@@ -10,38 +10,16 @@
         
         // create a visual list of emails to include: date, sender, subject
         for (var i = 0; i<window.geemails.length; i++){
-        	// console.log(window.geemails[i]);
-        	// console.log(window.geemails[i].date);
-
-        	var emailDate = document.createElement("div");
-        	emailDate.classname = "date"
-        	emailDate.innerHTML = window.geemails[i].date;
-        	main.appendChild(emailDate);
-
+         	// console.log(window.geemails[i]);
+         	// console.log(window.geemails[i].date);
         	// console.log(window.geemails[i].sender);
-
-        	var emailSender = document.createElement("div");
-        	emailSender.classname = "from"
-        	emailSender.innerHTML = window.geemails[i].sender;
-        	main.appendChild(emailSender);
-
         	// console.log(window.geemails[i].subject);
-        	var emailSubj = document.createElement("div");
-        	emailSubj.classname = "subject"
-        	emailSubj.innerHTML = window.geemails[i].subject;
-        	main.appendChild(emailSubj);
+			// console.log(window.geemails[i].body);
 
-        	// console.log(window.geemails[i].body);
-        	
-        	var emailBody = document.createElement("div");
-        	emailBody.classname = "content"
-        	emailBody.innerHTML = window.geemails[i].body;
-        	main.appendChild(emailBody);
+
+
+			
         }
-
-
-
-
 
       };
     </script>
