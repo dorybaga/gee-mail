@@ -1,5 +1,22 @@
 body {
 	font-family: 'Roboto', sans-serif;
 }
+
 .header {font-size: 100px
 }
+
+.date {
+	padding: 7px;
+	float: right;
+}
+
+.from {
+	padding: 7px;
+	
+}
+
+.subject {
+	font-weight: 700px;
+}
+
+

@@ -2,6 +2,7 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<title>geemail challenge</title>
     <script>
       window.onload = function(){
@@ -9,7 +10,7 @@
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
         // create a visual list of emails to include: date, sender, subject, body...
-
+        
         for (var i = 0; i<window.geemails.length; i++){
          	// console.log(window.geemails[i]);
          	// console.log(window.geemails[i].date);
@@ -19,32 +20,32 @@
 
 			// displays date, sender, subject, body
 
-			var emailDate = document.createElement("div");
-          	emailDate.className = "date";
-          	emailDate.innerHTML = window.geemails[i].date;
-          	main.appendChild(emailDate);
-
-          	var emailSender = document.createElement("div");
+			var emailSender = document.createElement("div");
           	emailSender.className = "from";
           	emailSender.innerHTML = window.geemails[i].sender;
-          	emailDate.appendChild(emailSender);
+          	main.appendChild(emailSender);
+
+          	var emailDate = document.createElement("div");
+          	emailDate.className = "date";
+          	emailDate.innerHTML = window.geemails[i].date;
+          	emailSender.appendChild(emailDate);
 
           	var emailSubject = document.createElement("div");
           	emailSubject.className = "about";
           	emailSubject.innerHTML = window.geemails[i].subject;
-          	emailDate.appendChild(emailSubject);
+          	emailSender.appendChild(emailSubject);
 
           	var emailBody = document.createElement("div");
           	emailBody.className = "message";
           	emailBody.innerHTML = window.geemails[i].body;
           	emailBody.style.display = "none"; // hide message
-          	emailDate.appendChild(emailBody);
+          	emailSender.appendChild(emailBody);
 
         }
 
-          	// add the event listener to show and hide the email message on click...
+        // show and hide the email message on click (event listener)...
 
-          	var showHide = document.getElementsByClassName("date");
+        var showHide = document.getElementsByClassName("from");
 
 		for (var j = 0; j<showHide.length; j++){
 			showHide[j].addEventListener("click", secret);   
@@ -59,7 +60,7 @@
     			}
     	}
 
-    		// add inbox counter...
+    	// add the inbox counter...
 
     	function inboxNum(numEmails){
     		for (var k = 0; k<numEmails.length; k++){
@@ -70,10 +71,17 @@
     	inboxNum(window.geemails);
     	// console.log(emailCounter); // 10
 
-    	var totalUnread = document.createElement("div");
-    	totalUnread.className = "unread";
+    	var unreadEmails = document.createElement("div");
+    	unreadEmails.className = "unread";
+    	unreadEmails.innerHTML = emailCounter;
+    	main.appendChild(unreadEmails);
+
+    	var totalUnread = document.getElementsByClassName("unread");
     	totalUnread.innerHTML = emailCounter;
-    	main.appendChild(totalUnread);
+
+    	// set recurring function to get new emails using setInterval function method
+
+    	// setInterval(getNewMessage(), 7000);
 
 
       };
