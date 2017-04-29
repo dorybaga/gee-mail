@@ -8,7 +8,8 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
-        // create a visual list of emails to include: date, sender, subject
+        // create a visual list of emails to include: date, sender, subject, body
+
         for (var i = 0; i<window.geemails.length; i++){
          	// console.log(window.geemails[i]);
          	// console.log(window.geemails[i].date);
@@ -16,10 +17,50 @@
         	// console.log(window.geemails[i].subject);
 			// console.log(window.geemails[i].body);
 
+			var emailDate = document.createElement("div");
+          	emailDate.className = "date";
+          	emailDate.innerHTML = window.geemails[i].date;
+          	main.appendChild(emailDate);
 
+          	var emailSender = document.createElement("div");
+          	emailSender.className = "from";
+          	emailSender.innerHTML = window.geemails[i].sender;
+          	emailDate.appendChild(emailSender);
 
-			
+          	var emailSubject = document.createElement("div");
+          	emailSubject.className = "about";
+          	emailSubject.innerHTML = window.geemails[i].subject;
+          	emailDate.appendChild(emailSubject);
+
+          	var emailBody = document.createElement("div");
+          	emailBody.className = "message";
+          	emailBody.innerHTML = window.geemails[i].body;
+          	emailBody.style.display = "none";
+          	emailDate.appendChild(emailBody);
+
         }
+
+          	// add the event listener to show and hide the email message on click
+
+          	var showHide = document.getElementsByClassName("date");
+
+		for (var j = 0; j<showHide.length; j++){
+			showHide[j].addEventListener("click", secret);   
+		}
+
+		function secret(){
+ 			var emailContent = this.querySelectorAll(".message")[0];
+  				if (emailContent.style.display === "none"){
+    				emailContent.style.display = "block";
+  				}else{
+    			emailContent.style.display = "none";
+    			}
+    	}
+
+    		//
+
+
+
 
       };
     </script>
