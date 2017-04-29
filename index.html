@@ -10,7 +10,8 @@
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
 
         // create a visual list of emails to include: date, sender, subject, body...
-        
+
+
         for (var i = 0; i<window.geemails.length; i++){
          	// console.log(window.geemails[i]);
          	// console.log(window.geemails[i].date);
@@ -46,6 +47,7 @@
           	box.appendChild(emailBody);
 
         }
+			
 
         // show and hide the email message on click (event listener)...
 
@@ -71,19 +73,63 @@
     			emailCounter = num.length;
 			}
     	}
-
     	inboxCount(window.geemails);
     	// console.log(emailCounter); // 10
 
     	var unreadEmails = document.createElement("div");
     	unreadEmails.className = "unread";
     	unreadEmails.innerHTML = emailCounter;
-    	main.appendChild(unreadEmails);
+    	header.appendChild(unreadEmails); // ???
 
     	// set recurring function to get new emails using setInterval function method
 
-    	// setInterval(getNewMessage(), 7000);
+    	function refresh(){
+    		var randomMail = getNewMessage();
 
+			var box = document.createElement("div");
+			box.className = "generalContainer";
+			main.appendChild(box);
+
+			var emailSender = document.createElement("div");
+          	emailSender.className = "from";
+          	emailSender.innerHTML = randomMail.sender;
+          	box.appendChild(emailSender);
+
+          	var emailDate = document.createElement("div");
+          	emailDate.className = "date";
+          	emailDate.innerHTML = randomMail.date;
+          	box.appendChild(emailDate);
+
+          	var emailSubject = document.createElement("div");
+          	emailSubject.className = "about";
+          	emailSubject.innerHTML = randomMail.subject;
+          	box.appendChild(emailSubject);
+
+          	var emailBody = document.createElement("div");
+          	emailBody.className = "message";
+          	emailBody.innerHTML = randomMail.body;
+          	emailBody.style.display = "none"; // hide message
+          	box.appendChild(emailBody);
+
+			var showHide = document.getElementsByClassName("generalContainer");
+
+		for (var j = 0; j<showHide.length; j++){
+			showHide[j].addEventListener("click", secret);   
+		}
+
+		function secret(){
+ 			var emailContent = this.querySelectorAll(".message")[0];
+  				if (emailContent.style.display === "none"){
+    				emailContent.style.display = "block";
+  				}else{
+    			emailContent.style.display = "none";
+    			}
+    	}
+
+    	}
+
+    	setInterval(refresh, 2000);
+    	console.log(refresh);
 
       };
     </script>
