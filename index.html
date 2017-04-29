@@ -8,7 +8,7 @@
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
         
-        // create a visual list of emails to include: date, sender, subject, body
+        // create a visual list of emails to include: date, sender, subject, body...
 
         for (var i = 0; i<window.geemails.length; i++){
          	// console.log(window.geemails[i]);
@@ -16,6 +16,8 @@
         	// console.log(window.geemails[i].sender);
         	// console.log(window.geemails[i].subject);
 			// console.log(window.geemails[i].body);
+
+			// displays date, sender, subject, body
 
 			var emailDate = document.createElement("div");
           	emailDate.className = "date";
@@ -35,12 +37,12 @@
           	var emailBody = document.createElement("div");
           	emailBody.className = "message";
           	emailBody.innerHTML = window.geemails[i].body;
-          	emailBody.style.display = "none";
+          	emailBody.style.display = "none"; // hide message
           	emailDate.appendChild(emailBody);
 
         }
 
-          	// add the event listener to show and hide the email message on click
+          	// add the event listener to show and hide the email message on click...
 
           	var showHide = document.getElementsByClassName("date");
 
@@ -57,9 +59,21 @@
     			}
     	}
 
-    		//
+    		// add inbox counter...
 
+    	function inboxNum(numEmails){
+    		for (var k = 0; k<numEmails.length; k++){
+    			emailCounter = numEmails.length;
+			}
+    	}
 
+    	inboxNum(window.geemails);
+    	// console.log(emailCounter); // 10
+
+    	var totalUnread = document.createElement("div");
+    	totalUnread.className = "unread";
+    	totalUnread.innerHTML = emailCounter;
+    	main.appendChild(totalUnread);
 
 
       };
