@@ -3,7 +3,7 @@
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-		<title>geemail challenge</title>
+		<title>Welcome to your Inbox</title>
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
@@ -67,19 +67,20 @@
     	}
 
     	// add the inbox counter...
-
+    	var totalEmails = 0;
     	function inboxCount(num){
     		for (var k = 0; k<num.length; k++){
-    			emailCounter = num.length;
+    			totalEmails = num.length;
 			}
     	}
     	inboxCount(window.geemails);
-    	// console.log(emailCounter); // 10
+    	// console.log(totalEmails); // 10
 
     	var unreadEmails = document.createElement("div");
-    	unreadEmails.className = "unread";
-    	unreadEmails.innerHTML = emailCounter;
-    	header.appendChild(unreadEmails); // ???
+    	unreadEmails.id = "unread";
+    	unreadEmails.innerHTML = totalEmails;
+    	header.appendChild(unreadEmails);
+
 
     	// set recurring function to get new emails using setInterval function method
 
@@ -113,23 +114,29 @@
 
 			var showHide = document.getElementsByClassName("generalContainer");
 
-		for (var j = 0; j<showHide.length; j++){
-			showHide[j].addEventListener("click", secret);   
-		}
+			for (var j = 0; j<showHide.length; j++){
+				showHide[j].addEventListener("click", secret);   
+			}
 
-		function secret(){
- 			var emailContent = this.querySelectorAll(".message")[0];
-  				if (emailContent.style.display === "none"){
-    				emailContent.style.display = "block";
-  				}else{
-    			emailContent.style.display = "none";
-    			}
+			function secret(){
+ 				var emailContent = this.querySelectorAll(".message")[0];
+  					if (emailContent.style.display === "none"){
+    					emailContent.style.display = "block";
+  					}else{
+    				emailContent.style.display = "none";
+    				}
+    		}
+
+    		var newCounter = totalEmails++;
+    		console.log(newCounter); // 10, 11, 12, 13...
+
+    		var updateCounter = document.getElementById("unread");
+    		updateCounter.innerHTML = newCounter;
+
     	}
 
-    	}
-
-    	setInterval(refresh, 2000);
-    	console.log(refresh);
+		setInterval(refresh, 3000);
+    	// console.log(refresh);
 
       };
     </script>
