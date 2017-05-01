@@ -7,6 +7,12 @@ body {
 	margin-bottom: 50px;	
 }
 
+#logo {
+	display: block;
+	float: right;
+}
+
+
 .generalContainer {
 	padding: 7px;
 	border-top: 1px dotted;

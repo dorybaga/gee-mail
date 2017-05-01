@@ -3,7 +3,7 @@
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-		<title>Welcome to your Inbox</title>
+		<title>Welcome to Your Inbox</title>
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
@@ -11,87 +11,86 @@
 
         // create a visual list of emails to include: date, sender, subject, body...
 
-
         for (var i = 0; i<window.geemails.length; i++){
          	// console.log(window.geemails[i]);
          	// console.log(window.geemails[i].date);
         	// console.log(window.geemails[i].sender);
         	// console.log(window.geemails[i].subject);
-			// console.log(window.geemails[i].body);
+			    // console.log(window.geemails[i].body);
 
 			// displays date, sender, subject, body
 
-			var box = document.createElement("div");
-			box.className = "generalContainer";
-			main.appendChild(box);
+			       var box = document.createElement("div");
+			       box.className = "generalContainer";
+			       main.appendChild(box);
 
-			var emailSender = document.createElement("div");
-          	emailSender.className = "from";
-          	emailSender.innerHTML = window.geemails[i].sender;
-          	box.appendChild(emailSender);
+			       var emailSender = document.createElement("div");
+          	 emailSender.className = "from";
+          	 emailSender.innerHTML = window.geemails[i].sender;
+          	 box.appendChild(emailSender);
 
-          	var emailDate = document.createElement("div");
-          	emailDate.className = "date";
-          	emailDate.innerHTML = window.geemails[i].date;
-          	box.appendChild(emailDate);
+          	 var emailDate = document.createElement("div");
+          	 emailDate.className = "date";
+          	 emailDate.innerHTML = window.geemails[i].date;
+          	 box.appendChild(emailDate);
 
-          	var emailSubject = document.createElement("div");
-          	emailSubject.className = "about";
-          	emailSubject.innerHTML = window.geemails[i].subject;
-          	box.appendChild(emailSubject);
+          	 var emailSubject = document.createElement("div");
+          	 emailSubject.className = "about";
+          	 emailSubject.innerHTML = window.geemails[i].subject;
+          	 box.appendChild(emailSubject);
 
-          	var emailBody = document.createElement("div");
-          	emailBody.className = "message";
-          	emailBody.innerHTML = window.geemails[i].body;
-          	emailBody.style.display = "none"; // hide message
-          	box.appendChild(emailBody);
+          	 var emailBody = document.createElement("div");
+          	 emailBody.className = "message";
+          	 emailBody.innerHTML = window.geemails[i].body;
+          	 emailBody.style.display = "none"; // hide message
+             box.appendChild(emailBody);
 
         }
 			
 
-        // show and hide the email message on click (event listener)...
+      // show and hide the email message on click (event listener)...
 
-        var showHide = document.getElementsByClassName("generalContainer");
+         var showHide = document.getElementsByClassName("generalContainer");
 
-		for (var j = 0; j<showHide.length; j++){
-			showHide[j].addEventListener("click", secret);   
-		}
+		     for (var j = 0; j<showHide.length; j++){
+			     showHide[j].addEventListener("click", secret);   
+		     }
 
-		function secret(){
- 			var emailContent = this.querySelectorAll(".message")[0];
-  				if (emailContent.style.display === "none"){
+		     function secret(){
+ 			      var emailContent = this.querySelectorAll(".message")[0];
+  				  if (emailContent.style.display === "none"){
     				emailContent.style.display = "block";
-  				}else{
-    			emailContent.style.display = "none";
-    			}
-    	}
+  				  }else{
+    			  emailContent.style.display = "none";
+    			  }
+    	   }
 
     	// add the inbox counter...
-    	var totalEmails = 0;
-    	function inboxCount(num){
-    		for (var k = 0; k<num.length; k++){
-    			totalEmails = num.length;
-			}
-    	}
-    	inboxCount(window.geemails);
-    	// console.log(totalEmails); // 10
 
-    	var unreadEmails = document.createElement("div");
-    	unreadEmails.id = "unread";
-    	unreadEmails.innerHTML = totalEmails;
-    	header.appendChild(unreadEmails);
+    	   var totalEmails = 0;
+    	   function inboxCount(num){
+    		    for (var k = 0; k<num.length; k++){
+    			  totalEmails = num.length;
+			      }
+    	   }
+    	   inboxCount(window.geemails);
+    	   // console.log(totalEmails); // 10
 
+    	   var unreadEmails = document.createElement("div");
+    	   unreadEmails.id = "unread";
+    	   unreadEmails.innerHTML = totalEmails;
+    	   header.appendChild(unreadEmails);
 
     	// set recurring function to get new emails using setInterval function method
 
-    	function refresh(){
-    		var randomMail = getNewMessage();
+    	   function refresh(){
+    		    var randomMail = getNewMessage();
 
-			var box = document.createElement("div");
-			box.className = "generalContainer";
-			main.appendChild(box);
+			      var box = document.createElement("div");
+			      box.className = "generalContainer";
+			      main.appendChild(box);
 
-			var emailSender = document.createElement("div");
+			      var emailSender = document.createElement("div");
           	emailSender.className = "from";
           	emailSender.innerHTML = randomMail.sender;
           	box.appendChild(emailSender);
@@ -112,31 +111,31 @@
           	emailBody.style.display = "none"; // hide message
           	box.appendChild(emailBody);
 
-			var showHide = document.getElementsByClassName("generalContainer");
+			      var showHide = document.getElementsByClassName("generalContainer");
 
-			for (var j = 0; j<showHide.length; j++){
-				showHide[j].addEventListener("click", secret);   
-			}
+			      for (var j = 0; j<showHide.length; j++){
+				      showHide[j].addEventListener("click", secret);   
+			      }
 
-			function secret(){
- 				var emailContent = this.querySelectorAll(".message")[0];
-  					if (emailContent.style.display === "none"){
+			      function secret(){
+ 				    var emailContent = this.querySelectorAll(".message")[0];
+  					  if (emailContent.style.display === "none"){
     					emailContent.style.display = "block";
-  					}else{
-    				emailContent.style.display = "none";
-    				}
-    		}
+  					  }else{
+    				  emailContent.style.display = "none";
+    				  }
+    		    }
 
-    		var newCounter = totalEmails++;
-    		console.log(newCounter); // 10, 11, 12, 13...
+    		    var newCounter = totalEmails++;
+    		    // console.log(newCounter); // 10, 11, 12, 13...
 
-    		var updateCounter = document.getElementById("unread");
-    		updateCounter.innerHTML = newCounter;
+    		    var updateCounter = document.getElementById("unread");
+    		    updateCounter.innerHTML = newCounter;
 
-    	}
+    	    }
+          // set recurring function to grab new mail
 
-		setInterval(refresh, 3000);
-    	// console.log(refresh);
+		      setInterval(refresh, 3000);
 
       };
     </script>
@@ -144,6 +143,7 @@
 	<body>
 		<div id="header"> 
 			GEEMAIL
+      <img id="logo" src="/images/logo-for-social-media.jpg" alt="logo" style="width:115px">
 		</div>
 		<div class="container" id="main">
 		</div>
